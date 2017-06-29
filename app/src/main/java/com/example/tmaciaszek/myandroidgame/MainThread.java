@@ -10,6 +10,7 @@ import android.view.SurfaceHolder;
 
 public class MainThread extends Thread{
 
+    //We will target our game running at 30 FPS
     private int FPS = 30;
     private double averageFPS;
     private SurfaceHolder surfaceHolder;
@@ -20,6 +21,7 @@ public class MainThread extends Thread{
     //Constructor
 
     public MainThread(SurfaceHolder surfaceHolder, GamePanel gamePanel){
+        //Calls the constructor of the superclass Thread
         super();
         this.surfaceHolder = surfaceHolder;
         this.gamePanel = gamePanel;
@@ -84,4 +86,4 @@ public class MainThread extends Thread{
         running = b;
     }
 
-}//end of thread
+}

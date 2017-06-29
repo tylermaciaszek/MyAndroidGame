@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.provider.Settings;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -151,7 +150,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 mycoins.get(i).update();
                 if(collision(mycoins.get(i),hero)){
                     mycoins.remove(i);
-                    hero.setScore(hero.getScore()+ 5);
+                    hero.setScore(hero.getScore()+ 50);
                     System.out.println(hero.getScore());
                     break;
                 }
@@ -178,12 +177,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             }
 
             long enemyElapsed = (System.nanoTime() - enemyStartTime) / 1000000;
-            if(enemyElapsed > (3000 - hero.getScore() / 4)){
-
-
-
+            if(enemyElapsed > (5000 - hero.getScore() / 4)){
                 enemy.add(new Enemy(BitmapFactory.decodeResource(getResources(), R.drawable.enemy),
-                        WIDTH + 10, (int) (rand.nextDouble() * (HEIGHT - 50)), 50, 42, hero.getScore(), 1));
+                        WIDTH + 10, (int) (rand.nextDouble() * (HEIGHT - 50)), 50, 42, hero.getScore(), 2));
                 enemyStartTime = System.nanoTime();
             }
 

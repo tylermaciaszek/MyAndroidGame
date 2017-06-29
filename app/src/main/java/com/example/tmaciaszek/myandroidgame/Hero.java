@@ -40,10 +40,6 @@ public class Hero extends GameObject {
 
     }
 
-    public void setUp(boolean b){
-        up = b;
-    }
-
     public void update(){
         long elapsed = (System.nanoTime()-startTime)/1000000;
         if(elapsed>100)
@@ -73,6 +69,10 @@ public class Hero extends GameObject {
         canvas.drawBitmap(animation.getImage(), x, y, null);
     }
 
+    public void setUp(boolean b){
+        up = b;
+    }
+
     public void setScore(int score) {
         this.score = score;
     }
@@ -96,6 +96,4 @@ public class Hero extends GameObject {
     public void resetScore(){
         score = 0;
     }
-
-
 }
